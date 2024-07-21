@@ -9,7 +9,7 @@ class Task:
 
     def __repr__(self):
         status="Completed" if self.completed else "Incomplete"
-        return f"Title:{self.title}, Description:{self.description}, Status:{status}"
+        return f"\nTitle:{self.title} \n Description:{self.description} \n Status:{status}\n"
     
 
 class TodoList:
@@ -27,7 +27,7 @@ class TodoList:
             print("No tasks available")
         else:
             for idx, task in enumerate(self.tasks):
-                print(f"ID: {idx}, {task}")
+                print(f"ID: {idx}\n {task}")
 
     def mark_task(self, task_id, completed=True):
         try:
@@ -69,26 +69,26 @@ def main():
         print("\n5.Delete Task")
         print("\n6.Exit")
 
-        option=input("Choose an option")
+        option=input("Choose an option: ")
 
         if option=='1':
-            title= input("Enter Task Title")
-            description= input("Enter Task Description:")
+            title= input("Enter Task Title: ")
+            description= input("Enter Task Description: ")
             todo_list.add_task(title, description)
         
         elif option=='2':
             todo_list.list_tasks()
 
         elif option=='3':
-            task_id=int(input("Enter task ID to mark as complete:"))
+            task_id=int(input("Enter task ID to mark as complete: "))
             todo_list.mark_task(task_id, completed=True)
 
         elif option=='4':
-            task_id=int(input("Enter task Id to mark as Incomplete:"))
+            task_id=int(input("Enter task Id to mark as Incomplete: "))
             todo_list.mark_task(task_id, completed=False)
         
         elif option=='5':
-            task_id=int(input("Enter Task id to delete"))
+            task_id=int(input("Enter Task id to delete: "))
             todo_list.delete_task(task_id)
 
         elif option=='6':
